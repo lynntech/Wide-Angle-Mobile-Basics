@@ -1,0 +1,62 @@
+/*
+	Undistort filter.
+	
+	Copyright (c) 2015 Lynntech, Inc. - All Rights Reserved.
+	Author: Christian Bruccoleri
+*/
+
+/**
+ * Image width in pixels.
+ */
+uniform float imWidth;
+/**
+ * Image height in pixels.
+ */
+uniform float imHeight;
+/**
+ * Radial distortion coefficents radial[0] to radial[1]
+ */
+uniform vec2 radial;
+/**
+ * Optical axis location [pixel]. 
+ */
+uniform vec2 center;
+/**
+ * Skew coefficient
+ */
+//uniform float skew;
+/**
+ * Focal length along pixels: columns (fx) and rows (fy), normalized to texture coordinates.
+ */
+//uniform vec2 focal;
+
+/**
+ * Apply the radial distortion model to the texture coordinates to obtain an un-distorted image.
+ * 
+ * @param color_dummy {vec3} - Unused; necessary for interface compatibility with the caller fragment shader. 
+ * @param tex {sampler2D} - The texture containing the distorted image.
+ * @param texturePos {vec2} - Normalized coordinates of the pixel within the texture.
+ */
+vec3 filter(vec3 color_dummy, sampler2D tex, vec2 texturePos)
+{
+	// TODO: add skew coefficient
+	// compute optical axis center in normalized image coordinates
+	float s0 = center.x / imWidth;
+	float t0 = center.y / imHeight;
+
+	// compute texture coordinates translating the origin in the center
+	float s = texturePos.s - s0;
+	float t = texturePos.t - t0;
+	float r2 = s*s + t*t;
+	float r4 = r2*r2;
+	float rd = 1.0 + (radial[0]*1.7)*r2 + radial[1]*(1.7)*r4;
+	//float k1 = -0.6;
+	//float k2 = -0.02;
+	//float rd = 1.0 + k1*r2 + k2*r4;
+	// compute texture coordinates: move the origin to upper left
+	float sd = s*rd + s0;
+	float td = t*rd + t0;
+	vec4 value = texture2D(tex, vec2(sd, td));
+		
+	return vec3(value[0], value[1], value[2]);
+}

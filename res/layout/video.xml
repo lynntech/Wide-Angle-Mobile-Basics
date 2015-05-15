@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/camera_preview_parent"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:baselineAligned="false"
+    android:orientation="horizontal" >
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="fill_parent"
+        android:layout_weight="1"
+        android:orientation="vertical" >
+
+        <ImageButton
+            android:id="@+id/btn_snap"
+            style="?android:attr/borderlessButtonStyle"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/btn_snap_description"
+            android:onClick="btnSnapOnClick"
+            android:src="@drawable/ic_action_camera" />
+
+        <TextView
+            android:id="@+id/txtSnapCount"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/txt_zero"
+            android:textAlignment="center"
+            android:textAppearance="?android:attr/textAppearanceSmall" />
+
+        <ImageButton
+            android:id="@+id/btnCalibrate"
+            style="?android:attr/borderlessButtonStyle"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/btn_calibrate_description"
+            android:onClick="btnCalibrateOnClick"
+            android:src="@drawable/ic_action_accept" />
+    </LinearLayout>
+
+    <FrameLayout
+        android:id="@+id/camera_preview"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="10" >
+    </FrameLayout>
+
+</LinearLayout>
+

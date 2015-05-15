@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Common strings -->
+    <string name="app_name">InstaCam</string>
+    <string name="title">InstaCam</string>
+    <string name="saving">Saving picture..</string>
+    <string name="focus_failed">Auto focusing failed.</string>
+
+    <!-- Button texts -->
+    <string name="button_exit">Exit</string>
+    <string name="button_shoot">Shoot</string>
+    <string name="button_cancel">Cancel</string>
+    <string name="button_save">Save</string>
+
+    <!-- Menu strings -->
+    <string name="spinner_filter">Select Filter</string>
+    <string name="seekbar_brightness">Adjust Brightness (%+d)</string>
+    <string name="seekbar_contrast">Adjust Contrast (%+d)</string>
+    <string name="seekbar_saturation">Adjust Saturation (%+d)</string>
+    <string name="seekbar_corner_radius">Adjust Corner Radius (%+d)</string>
+
+    <!-- Preference keys -->
+    <string name="key_filter">key_filter</string>
+    <string name="key_brightness">key_brightness</string>
+    <string name="key_contrast">key_contrast</string>
+    <string name="key_saturation">key_saturation</string>
+    <string name="key_corner_radius">key_corner_radius</string>
+
+    <!-- Filter names -->
+    <string-array name="filters">
+        <item>None</item>
+        <item>Black &amp; White</item>
+        <item>Ansel</item>
+        <item>Sepia</item>
+        <item>Retro</item>
+        <item>Georgia</item>
+        <item>Sahara</item>
+        <item>Polaroid</item>
+        <item>Cartoon</item>
+        <item>Edges</item>
+        <item>Undistort</item>
+    </string-array>
+    
+    <!--  Calibration Activity Strings  -->
+	<string name="calibration_activity_name">Camera Calibration</string>
+	<string name="btn_snap_description">Snap a picture for calibration</string>
+	<string name="btn_calibrate_description">Perform calibration</string>
+	<string name="txt_zero">0</string>
+	<string name="btn_calibrate_label">Calibrate</string>
+</resources>
